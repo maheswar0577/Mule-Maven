@@ -26,8 +26,36 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				</configuration>
+        <muleVersion>${app.runtime}</muleVersion>
+        <application>/path/to/app1.zip</application>
+    </configuration>
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+        </execution>
+    </executions>
 			</plugin>
+			<plugin>
+	<groupId>org.mule.tools.maven</groupId>
+	<artifactId>cloudhub-maven-plugin</artifactId>
+	<version>1.0</version>
+    <configuration>
+        <muleVersion>${app.runtime}</muleVersion>
+    </configuration>
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
 
@@ -71,5 +99,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
