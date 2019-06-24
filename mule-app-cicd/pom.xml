@@ -20,6 +20,30 @@
 
 	<build>
 		<plugins>
+		<plugin>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>2.1.1</version>
+    <configuration>
+        <muleVersion>4.1.5</muleVersion>
+        <deploymentType>cloudhub</deploymentType>
+        <applicationName>${artifactId}-${version}</applicationName>
+        <username>m-reddy-c</username>
+        <password>M#Kmr@1990</password>
+        <workerType>Micro</workerType>
+        <redeploy>true</redeploy>
+        <environment>Sandbox</environment>
+    </configuration>
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
@@ -58,7 +82,6 @@
 </plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
         <dependency>
             <groupId>org.mule.connectors</groupId>
